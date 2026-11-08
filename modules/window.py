@@ -8,9 +8,9 @@ from .buttons import create_buttons
 WIDTH_WINDOW = 1024
 HEIGHT_WINDOW = 800
 
-screen_geometry = app.primaryScreen().availableGeometry()
-HEIGHT_WINDOW = min(HEIGHT_WINDOW, screen_geometry.height())
-
+screen_geometry = app.primaryScreen()
+HEIGHT_WINDOW = screen_size.height()
+WIDTH_WINDOW = screen_size.width()
 main_window = QMainWindow()
 screen_x = screen_geometry.x() + screen_geometry.width() // 2 - WIDTH_WINDOW // 2
 screen_y = screen_geometry.y() + screen_geometry.height() // 2 - HEIGHT_WINDOW // 2
@@ -29,7 +29,7 @@ main_scroll = QScrollArea(parent=frame_0)
 main_scroll.setFixedSize(400, HEIGHT_WINDOW)
 main_scroll.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOff)
 main_scroll.setWidgetResizable(False)
-main_scroll.setStyleSheet("background-color: gray; border: none;")
+main_scroll.setStyleSheet("background-color: gray;")
 main_scroll.setFrameShape(QFrame.Shape.NoFrame)
 horizontal_layout.addWidget(main_scroll)
 horizontal_layout.addStretch()
